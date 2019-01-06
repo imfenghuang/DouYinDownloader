@@ -7,11 +7,11 @@ from bs4 import BeautifulSoup
 class DouYinDownloader(object):
     def __init__(self):
         self.headers = {
-        'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
-        'accept-encoding': 'gzip, deflate, br',
-        'accept-language': 'zh-CN,zh;q=0.9',
-        'cache-control': 'max-age=0',
-        'upgrade-insecure-requests': '1',
+            'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+            'accept-encoding': 'gzip, deflate, br',
+            'accept-language': 'zh-CN,zh;q=0.9',
+            'cache-control': 'max-age=0',
+            'upgrade-insecure-requests': '1',
             'user-agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1'
         }
 
@@ -63,7 +63,7 @@ class DouYinDownloader(object):
             content_size = int(response.headers['content-length']) 
             
             if response.status_code == 200:
-                sys.stdout.write('  [文件大小]:%0.2f MB %s \n' % (content_size / chunk_size / 1024,video_name + '.mp4'))
+                sys.stdout.write('  [文件大小]:%0.2f MB %s \n' % (content_size / chunk_size / 1024, video_name + '.mp4'))
 
                 with open(video_name + ".mp4", "wb") as file:  
                     for data in response.iter_content(chunk_size = chunk_size):
